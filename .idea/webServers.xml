@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="73d72cc7-524f-4f9c-8b98-dc2458a811aa" name="imooc_shop" url="http://123.207.243.164/">
+        <fileTransfer host="123.207.243.164" port="22" rootFolder="/usr/share/nginx" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

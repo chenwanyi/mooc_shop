@@ -1,0 +1,7 @@
+//mysql笔记
+
+//导入sql执行文件：source 文件目录
+source /uer/share/nginx/sql/imooc_shop.sql;
+
+//进入数据
+use 数据库名称;
