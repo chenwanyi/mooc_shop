@@ -1,8 +1,13 @@
+<?php
+    use yii\bootstrap\ActiveForm;
+    use yii\helpers\Html;
+?>
+
 <!DOCTYPE html>
 <html class="login-bg">
 
 <head>
-    <title>忘记密码</title>
+    <title>商城后台找回密码</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- bootstrap -->
     <link href="assets/admin/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -24,22 +29,31 @@
 
 <body>
 <div class="row-fluid login-wrapper">
-    <a class="brand" href="index.html"></a>
-    <form id="w0" action="/index.php?r=admin%2Fpublic%2Fseekpassword" method="post" role="form">
-        <input type="hidden" name="_csrf" value="YW1ZZHZ4el8TIz4CDkpXNVBVODQODg8KEF04KCMbMikFKggdRAw5LQ==">
+    <?php   $form = ActiveForm::begin([
+        'fieldConfig' => [
+            'template' => '{error}{input}',
+    ]
+    ]);?>
+        <input type="hidden" name="_csrf" value="Y290qz6eodVDYrYhEJ9fyjOZMct3wGvL">
         <div class="span4 box">
             <div class="content-wrap">
-                <h6>Ľ���̳� - �һ�����</h6>
+                <h6>商城商城 - 找回密码</h6>
+                <?php if (Yii::$app->session->hasFlash('info')){
+                    echo Yii::$app->session->getFlash('info');
+                }?>
                 <div class="form-group field-admin-adminuser">
                     <p class="help-block help-block-error"></p>
-                    <input type="text" id="admin-adminuser" class="span12" name="Admin[adminuser]" placeholder="����Ա�˺�"></div>
+                    <?php echo $form->field($model,'adminuser')->textInput(["class"=>"span12","placeholder"=>"管理员账号"]);?>
+                    </div>
                 <div class="form-group field-admin-adminemail">
                     <p class="help-block help-block-error"></p>
-                    <input type="text" id="admin-adminemail" class="span12" name="Admin[adminemail]" placeholder="����Ա��������"></div>
-                <a href="/index.php?r=admin%2Fpublic%2Flogin" class="forgot">���ص�¼</a>
-                <button type="submit" class="btn-glow primary login">�һ�����</button></div>
+                    <?php echo $form->field($model,'adminemail')->textInput(["class"=>"span12","placeholder"=>"管理员邮箱"]);?>
+                    </div>
+                <a href="<?php echo yii\helpers\Url::to(['public/login']);?>" class="forgot">返回登录</a>
+                <?php echo Html::submitButton('找回密码',["class"=>"btn-glow primary login"])?></div>
+
         </div>
-    </form>
+     <?php ActiveForm::end();?>
 </div>
 <!-- scripts -->
 <script src="assets/admin/js/jquery-latest.js"></script>
@@ -60,5 +74,4 @@
 
     });</script>
 </body>
-
 </html>

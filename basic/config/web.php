@@ -15,7 +15,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Y290qz6eodVDYrYhEJ9fyjOZMct3wGvL',
 
-            //提交出错踢死400时，关闭了这项
+            //关闭Csrf盾牌
             'enableCsrfValidation' => false,
         ],
         'cache' => [
@@ -33,7 +33,15 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                    'host' => 'smtp.163.com',
+                    'username' => 'ly66278',
+                    'password' => 'chenwanyi123123',
+                    'port' => '25',
+                    'encryption' => 'tls',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

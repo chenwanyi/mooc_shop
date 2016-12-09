@@ -29,7 +29,6 @@
 
 <body>
 <div class="row-fluid login-wrapper">
-    <a class="brand" href="index.html"></a>
     <?php   $form = ActiveForm::begin([
         'fieldConfig' => [
             'template' => '{error}{input}',
@@ -47,12 +46,11 @@
                     <p class="help-block help-block-error"></p>
                     <?php echo $form->field($model,'adminpass')->passwordInput(["class"=>"span12","placeholder"=>"管理员密码"]);?>
                     </div>
-                <a href="/index.php?r=admin%2Fpublic%2Fseekpassword" class="forgot">忘记密码</a>
+                <a href="<?php echo yii\helpers\Url::to(['public/seekpassword']);?>" class="forgot">忘记密码</a>
                 <div class="form-group field-remember-me">
                     <?php echo $form->field($model,'rememberMe')->checkbox([
                         'id'=>'remember-me',
                         'template' => '<div class="remember">{input}<label for="remember-me">记住我</label></div>'
-
 
                     ]);?>
 

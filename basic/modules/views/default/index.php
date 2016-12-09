@@ -1,6 +1,4 @@
 
-
-
 <!-- main container -->
 <div class="content">
 
